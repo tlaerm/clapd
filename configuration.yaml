@@ -1,0 +1,20 @@
+base:
+  port: 389
+  # The proxy will be listening on this port
+  loglevel: "info"
+  flushdb: False 
+  # Flush the cache database on startup
+server:
+  protocol: "ldap"
+  # ldap or ldaps
+  host: "hostname.of.ldaphost"
+  port: 389
+  offlineRetry: 60 
+  # clap will wait this many seconds before retrying the server once it is offline
+cache:
+  # clap will keep cached entries this long before refreshing them in online mode
+  # it will keep them indefinitely in offline mode
+  bind:
+    ttl: 3600
+  search:
+    ttl: 3600
