@@ -15,6 +15,11 @@ is a simple LDAP caching proxy written in Python
 2. Edit configuration.yaml with your settings.
 3. Run clap.py and point your LDAP enabled app at it.
 
+## Use cases:
+* You want to run an LDAP-enabled application against a remote LDAP server without setting up a whole local LDAP slave server.
+* You want to run an application that supports only ldap but not ldaps against a TLS-only LDAP server. 
+* You want to use LDAP authentication across a flaky connection. 
+
 ## Beware:
 Caching always introduces security risks because old credentials can be used to validate
 
