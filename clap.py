@@ -40,7 +40,7 @@ LOGLEVELS = {
     "error": logging.ERROR
 }
 
-cachedb = redis.Redis(host='redis', port=6379, db=0)
+cachedb = redis.Redis(host=cfg['redis']['host'], port=cfg['redis']['port'], db=0)
   
 with open(os.getcwd()+"/configuration.yaml", 'r', encoding='utf8') as ymlfile:
     cfg = yaml.load(ymlfile, Loader=yaml.SafeLoader)

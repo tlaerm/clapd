@@ -4,6 +4,9 @@ base:
   loglevel: "info"
   flushdb: False 
   # Flush the cache database on startup
+redis:
+  host: "redis"
+  port: "6379"
 server:
   protocol: "ldap"
   # ldap or ldaps
