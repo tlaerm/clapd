@@ -20,8 +20,12 @@ is a simple LDAP caching proxy written in Python
 * You want to run an application that supports only ldap but not ldaps against a TLS-only LDAP server. 
 * You want to use LDAP authentication across a flaky connection. 
 
+##ToDo
+* PEP8ify the code
+* Clarify some comments
+
 ## Beware:
-Caching always introduces security risks because old credentials can be used to validate
+Caching always introduces security risks because old credentials can be used to validate.
 
 -----
 clap, especially the BER encoding stuff, is based in part on work of Giovanni Cannata and contributors at https://github.com/cannatag/ldap3
