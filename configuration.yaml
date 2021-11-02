@@ -2,6 +2,7 @@ base:
   port: 389
   # The proxy will be listening on this port
   loglevel: "info"
+  # Can be info, warning, error, debug. Beware: debug logs entire LDAP requests including passwords in the clear.
   flushdb: False 
   # Flush the cache database on startup
 redis:
