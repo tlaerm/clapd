@@ -20,7 +20,7 @@ is a simple LDAP caching proxy written in Python
 * You want to run an application that supports only ldap but not ldaps against a TLS-only LDAP server. 
 * You want to use LDAP authentication across a flaky connection. 
 
-##ToDo
+## ToDo
 * PEP8ify the code
 * Clarify some comments
 
