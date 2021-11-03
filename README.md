@@ -1,4 +1,4 @@
-# clap
+# clapd
 is a simple LDAP caching proxy written in Python
 
 ## it will
@@ -28,4 +28,4 @@ is a simple LDAP caching proxy written in Python
 Caching always introduces security risks because old credentials can be used to validate.
 
 -----
-clap, especially the BER encoding stuff, is based in part on work of Giovanni Cannata and contributors at https://github.com/cannatag/ldap3
+clapd, especially the BER encoding stuff, is based in part on work of Giovanni Cannata and contributors at https://github.com/cannatag/ldap3
