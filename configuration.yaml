@@ -14,9 +14,9 @@ server:
   host: "hostname.of.ldaphost"
   port: 389
   offlineRetry: 60 
-  # clap will wait this many seconds before retrying the server once it is offline
+  # clapd will wait this many seconds before retrying the server once it is offline
 cache:
-  # clap will keep cached entries this long before refreshing them in online mode
+  # clapd will keep cached entries this long before refreshing them in online mode
   # it will keep them indefinitely in offline mode
   bind:
     ttl: 3600
