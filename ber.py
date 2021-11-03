@@ -8,20 +8,20 @@
 #
 # Copyright 2021 Thomas Lärm
 #
-# This file is part of clap.
+# This file is part of clapd.
 #
-# clap is free software: you can redistribute it and/or modify
+# clapd is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published
 # by the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# clap is distributed in the hope that it will be useful,
+# clapd is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with clap in the COPYING and COPYING.LESSER files.
+# along with clapd in the COPYING and COPYING.LESSER files.
 # If not, see <http://www.gnu.org/licenses/>.
 
 from pyasn1 import __version__ as pyasn1_version
@@ -223,7 +223,7 @@ DECODERS = {
     (1, 15): decode_sequence,  # Compare response
     (1, 19): decode_sequence,  # Search result reference
     (1, 20): decode_octet_string,  # Bind request
-    (1, 23): decode_extended_request,  # Bind request
+    (1, 23): decode_extended_request,  # Extended request
     (1, 24): decode_extended_response,  # Extended response
     (1, 25): decode_intermediate_response,  # intermediate response
     (2, 0): decode_octet_string,  #
@@ -242,8 +242,8 @@ EXTENDED_RESPONSE_CONTEXT = {
 }
 
 EXTENDED_REQUEST_CONTEXT = {
-    0: decode_octet_string,  # ResponseName
-    1: decode_octet_string  # Response Value
+    0: decode_octet_string,  # Request Name
+    1: decode_octet_string  # Request Value
 }
 
 INTERMEDIATE_RESPONSE_CONTEXT = {
