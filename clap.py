@@ -40,11 +40,11 @@ LOGLEVELS = {
     "error": logging.ERROR
 }
 
-cachedb = redis.Redis(host=cfg['redis']['host'], port=cfg['redis']['port'], db=0)
   
 with open(os.getcwd()+"/configuration.yaml", 'r', encoding='utf8') as ymlfile:
     cfg = yaml.load(ymlfile, Loader=yaml.SafeLoader)
 
+cachedb = redis.Redis(host=cfg['redis']['host'], port=cfg['redis']['port'], db=0)
 #TODO optional configuration via environment variables
 
 if cfg['base']['flushdb']:
