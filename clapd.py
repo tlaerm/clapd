@@ -182,7 +182,7 @@ class LDAPRequestHandler:
         self.sendLDAP(cachedBindRequest, self.serversock)
         self.response = self.receiveLDAP(self.serversock)
         bindResultCode = self.decodeLDAPmessages(self.response)[0]['payload'][0][3]
-        logging.debug("Received response: "+ pformat(self.decodeLDAPmessages(self.response)) +"with Result Code " + str(bindResultCode))
+        logging.debug("Received BIND response: "+ pformat(self.decodeLDAPmessages(self.response)) +"with Result Code " + str(bindResultCode))
         self.cache.cacheBind(self.bindHash, self.response, cachedBindRequest)
        
         if bindResultCode == 0:
@@ -197,13 +197,14 @@ class LDAPRequestHandler:
         logging.info("HANDLING Search Request")
         self.requestHash = hashlib.md5(str(self.decodeLDAPmessages(self.requests)).encode()).hexdigest()
         messageID = self.decodeLDAPmessages(self.requests)[0]['messageID']
-
+        
         logging.debug("with requestHash " + self.requestHash)
         logging.debug("with messageID " + str(messageID))
-        
+        logging.debug("SEARCH REQUEST: "+pformat(self.decodeLDAPmessages(self.requests)))
         if self.cache.getResult(self.requestHash, self.bindHash, self.serversock):
             self.response = self.cache.getResult(self.requestHash, self.bindHash, self.serversock)
             logging.info("GOT search response from cache")
+            logging.debug("Cached SEARCH response: "+ pformat(self.decodeLDAPmessages(self.response)) +" of type "+ str(type(self.response)))            
             self.RESPONSEHANDLERS[self.decodeLDAPmessages(self.response)[0]['protocolOp']](self)
         elif self.serversock:
             if self.bindAnsweredFromCache and not self.bound:
@@ -226,6 +227,7 @@ class LDAPRequestHandler:
 
     def handleSearchResult(self):
         self.sendLDAP(self.response, self.clientsock)
+        logging.debug("Received SEARCH response: "+ pformat(self.decodeLDAPmessages(self.response)) +" of type "+ str(type(self.response)))
         logging.info("ANSWERED search request")
 
     def decodeLDAPmessages(self,messages):

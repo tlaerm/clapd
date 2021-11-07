@@ -29,7 +29,7 @@ from pyasn1.codec.ber import decoder  # for usage in other modules
 from pyasn1.codec.ber.encoder import Encoder # for monkeypatching of boolean value
 import pprint, logging
 from datetime import date, datetime
-from clap import LOGLEVELS, cfg
+from clapd import LOGLEVELS, cfg
 
 CLASSES = {(False, False): 0,  # Universal
            (False, True): 1,  # Application
